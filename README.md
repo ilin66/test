@@ -124,7 +124,7 @@ When you create an customize native ad object, the ad element id in the custom l
 
 |Ad Element | Required | Corresponding Ad Element ID |
 |----------|----------|----------|
-|Ad icon|Required|`R.id. icon_image_native`|
+|Ad icon|Yes|`R.id. icon_image_native`|
 |Cover image|Yes|`R.id.ad_cover_image`|
 |AD logo|Yes|`R.id.ad_icon_image2`|
 |AdChoices icon|Yes|`R.id.native_ad_choices_image`|
