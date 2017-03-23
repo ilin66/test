@@ -6,13 +6,13 @@ Maximize your app's revenue streams and save time, sign up for an account at [Fu
 ## Initialization
 
 ##### Method:
-```
+```java
 init()
 ```
 ##### Parameters:
-```
-Context context//Context object.
-String configUrl//Required, pease use this fixed address: http://adconfig.cpp.app.fusessp.net?pubid=xxxx, note that the value of pubid needs to be replaced by the "App ID" that was generated after the app you created in FuseSSP.
+```java
+Context context         //Context object.
+String configUrl        //Required, pease use this fixed address: http://adconfig.cpp.app.fusessp.net?pubid=xxxx, note that the value of pubid needs to be replaced by the "App ID" that was generated after the app you created in FuseSSP.
 String channel
 String installChannel
 ```
@@ -41,7 +41,7 @@ AdAgent.getInstance().loadAd(getApplicationContext(),ad,new OnAdLoadListener() {
 ##### Method:
 ```
 loadAd()
-Ad ad = (new Ad.Builder(getApplicationContext(),slotId))//slotId is the "Ad Unit ID" generated after the ad unit you created in FuseSSP.
+Ad ad = (new Ad.Builder(getApplicationContext(),slotId))    //slotId is the "Ad Unit ID" generated after the ad unit you created in FuseSSP.
 .setWidth(330)
 .setHight(300)
 .setParentViewGroup(ad_container)
@@ -57,17 +57,17 @@ Ad ad = (new Ad.Builder(getApplicationContext(),slotId))//slotId is the "Ad Unit
 ##### Parameters:
 ```
 //Ad Builder:
-ViewGroup viewGroup//Parent container (used to fill ads).
-boolean isPreLoad//Control whether the ad is preloaded (default: false).
-boolean setTransparent//Control whether the ad background is transparent (default: false).
-int adResourceLayout//The layout id of the custom template layout in the xml.  
-int titlecolor//The color of the title text in the ad element.
-int subTitleColor//The color of the subtitle text in the ad element.
-int ctaTextColor//The color of the CTA text in the ad element.
-int ctaBackground//The background color of the CTA button in the ad element.
-String slotId//Required, the "Ad Unit ID" that was generated after the app's ad unit you created in FuseSSP.
-int width//The width of the ad (required in Admob banner ads)
-int hight//The hight of the ad (required in Admob banner ads)
+ViewGroup viewGroup     //Parent container (used to fill ads).
+boolean isPreLoad       //Control whether the ad is preloaded (default: false).
+boolean setTransparent  //Control whether the ad background is transparent (default: false).
+int adResourceLayout    //The layout id of the custom template layout in the xml.  
+int titlecolor          //The color of the title text in the ad element.
+int subTitleColor       //The color of the subtitle text in the ad element.
+int ctaTextColor        //The color of the CTA text in the ad element.
+int ctaBackground       //The background color of the CTA button in the ad element.
+String slotId           //Required, the "Ad Unit ID" that was generated after the app's ad unit you created in FuseSSP.
+int width   //The width of the ad (required in Admob banner ads)
+int hight   //The hight of the ad (required in Admob banner ads)
 ```
 Additional information: ViewGroup viewGroup
 Use getView() to get ad's view: don't provide the parent container, the ad returns Nativedata and adview by default, but the ad's data fill and display requires your application to complete. (Through the NativeData custom View need to use iAd.registerViewForInteraction (view) method to register the view in the onLoad callback process.)
