@@ -11,19 +11,19 @@ init()
 ```
 ##### Parameters:
 ```java
-Context context         //Context object.
-String configUrl        //Required, pease use this fixed address: http://adconfig.cpp.app.fusessp.net?pubid=xxxx, note that the value of pubid needs to be replaced by the "App ID" that was generated after the app you created in FuseSSP.
+Context context//Context object.
+String configUrl//Required, pease use this fixed address: http://adconfig.cpp.app.fusessp.net?pubid=xxxx, note that the value of pubid needs to be replaced by the "App ID" that was generated after the app you created in FuseSSP.
 String channel
 String installChannel
 ```
 ##### How to use:
-```
+```java
 AdAgent.getInstance().init(this, configUrl, " channel", "installChannel")
 ```
 
 ## Ad Data Obtainment
 ##### How to use:
-```
+```java
 public void loadAd(Context context, Ad ad, OnAdLoadListener listener)
 AdAgent.getInstance().loadAd(getApplicationContext(),ad,new OnAdLoadListener() {
             @Override
@@ -39,9 +39,9 @@ AdAgent.getInstance().loadAd(getApplicationContext(),ad,new OnAdLoadListener() {
         });
 ```
 ##### Method:
-```
+```java
 loadAd()
-Ad ad = (new Ad.Builder(getApplicationContext(),slotId))    //slotId is the "Ad Unit ID" generated after the ad unit you created in FuseSSP.
+Ad ad = (new Ad.Builder(getApplicationContext(),slotId))//slotId is the "Ad Unit ID" generated after the ad unit you created in FuseSSP.
 .setWidth(330)
 .setHight(300)
 .setParentViewGroup(ad_container)
@@ -55,30 +55,30 @@ Ad ad = (new Ad.Builder(getApplicationContext(),slotId))    //slotId is the "Ad 
 .build();
 ```
 ##### Parameters:
-```
+```java
 //Ad Builder:
-ViewGroup viewGroup     //Parent container (used to fill ads).
-boolean isPreLoad       //Control whether the ad is preloaded (default: false).
-boolean setTransparent  //Control whether the ad background is transparent (default: false).
-int adResourceLayout    //The layout id of the custom template layout in the xml.  
-int titlecolor          //The color of the title text in the ad element.
-int subTitleColor       //The color of the subtitle text in the ad element.
-int ctaTextColor        //The color of the CTA text in the ad element.
-int ctaBackground       //The background color of the CTA button in the ad element.
-String slotId           //Required, the "Ad Unit ID" that was generated after the app's ad unit you created in FuseSSP.
-int width   //The width of the ad (required in Admob banner ads)
-int hight   //The hight of the ad (required in Admob banner ads)
+ViewGroup viewGroup//Parent container (used to fill ads).
+boolean isPreLoad//Control whether the ad is preloaded (default: false).
+boolean setTransparent//Control whether the ad background is transparent (default: false).
+int adResourceLayout//The layout id of the custom template layout in the xml.  
+int titlecolor//The color of the title text in the ad element.
+int subTitleColor//The color of the subtitle text in the ad element.
+int ctaTextColor//The color of the CTA text in the ad element.
+int ctaBackground//The background color of the CTA button in the ad element.
+String slotId//Required, the "Ad Unit ID" that was generated after the app's ad unit you created in FuseSSP.
+int width//The width of the ad (required in Admob banner ads)
+int hight//The hight of the ad (required in Admob banner ads)
 ```
 Additional information: ViewGroup viewGroup
-Use getView() to get ad's view: don't provide the parent container, the ad returns Nativedata and adview by default, but the ad's data fill and display requires your application to complete. (Through the NativeData custom View need to use iAd.registerViewForInteraction (view) method to register the view in the onLoad callback process.)
+Use ```getView()``` to get ad's view: don't provide the parent container, the ad returns Nativedata and adview by default, but the ad's data fill and display requires your application to complete. (Through the NativeData custom View need to use ```iAd.registerViewForInteraction(view)``` method to register the view in the onLoad callback process.)
 
-Fill the parent container to dispaly the ads: provide the parent container, SDK will add the corresponding ad data you get to the corresponding parent class container, the data or view will also be provided in the callback interface onLoad (IAd iAd) method.
+Fill the parent container to dispaly the ads: provide the parent container, SDK will add the corresponding ad data you get to the corresponding parent class container, the data or view will also be provided in the callback interface ```onLoad(IAd iAd)``` method.
 
-You can only fill the parent container to display the ads or use getView() to get ad's view, otherwise the click event may be invalid.
+You can only fill the parent container to display the ads or use ```getView()``` to get ad's view, otherwise the click event may be invalid.
 
 ## Ad Data Callback
 ##### Method:
-```
+```java
 new OnAdLoadListener() {
                    @Override
                    public void onLoad(IAd iAd) {}
@@ -90,7 +90,7 @@ new OnAdLoadListener() {
                                              }}
 ```
 ##### onLoad: Native&Banner Ad
-```
+```java
 //IAd is the data returned after the callback is successful. Below are the methods in IAd.
 View getAdView();//Banner view.
 AdCallBackInfo getNativeAd();//Get native data.
@@ -104,23 +104,23 @@ void registerViewForInteraction(View var1);//If you use the returned data to sti
 void showCustomAdView();//Custom view, you need to call this method to achieve the RBI event of the ad display.
 ```
 ##### onLoad: Interstitial Ad
-```
+```java
 wrapInterstitialAd.show()//Need to show manually.
 ```
 ##### onLoad: Failed 
-```
+```java
 AdError//Error information.
 enum AdError { NO_FILL, NETWORK_FAILD, NETWORK_TIME_OUT, REQUEST_FREQUENCY, OTHER, INVALID_REQUEST;}
 ```
 
 # Release Ad Resources
-```
+```java
 iAd.release(ad_container);//Required
 ViewGroup ad_container//Load the ad parent control
 ```
 
 # Customize Native UI
-When you create an customize native ad object, the ad element id in the custom layout of the setAppSelfLayout() method needs to correspond to the ad element id in the table below.
+When you create an customize native ad object, the ad element id in the custom layout of the ```setAppSelfLayout()``` method needs to correspond to the ad element id in the table below.
 
 |Ad Element | Required | Corresponding Ad Element ID |
 |----------|----------|----------|
