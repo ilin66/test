@@ -1,6 +1,6 @@
 # FuseSSP Android SDK
 
-Maximize your app's revenue streams and save time, sign up for an account at [FuseSSP.com](http://fusessp.com).
+Maximize your app's revenue streams and save time, sign up for an account at [FuseSSP.com](http://app.fusessp.com).
 
 
 ## Initialization
