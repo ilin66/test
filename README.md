@@ -121,14 +121,15 @@ ViewGroup ad_container//Load the ad parent control
 
 # Customize Native UI
 When you create an customize native ad object, the ad element id in the custom layout of the setAppSelfLayout() method needs to correspond to the ad element id in the table below.
+
 |Ad Element | Required | Corresponding Ad Element ID |
-|---|---|---|
-| Ad icon | Required | R.id. icon_image_native |
-| Cover image | Required | R.id.ad_cover_image |
-| AD logo | Required | R.id.ad_icon_image2 |
-| AdChoices icon | Required | R.id.native_ad_choices_image |
-| call to action text | Yes | R.id.calltoaction_text |
-| Title | Required | R.id.ad_title_text |
-| Subtitle | Required | R.id.ad_subtitle_Text |
-| Facebook mediaView |  | R.id.ad_fb_cover_image |
-| Admob mediaView |  | R.id.ad_admob_cover_image |
+|----------|----------|----------|
+|`Ad icon`|`Required`|`R.id. icon_image_native`|
+|`Cover image`|`Required`|`R.id.ad_cover_image`|
+|`AD logo`|`Required`|`R.id.ad_icon_image2`|
+|`AdChoices icon`|`Required`|`R.id.native_ad_choices_image`|
+|`call to action text`|`Yes`|`R.id.calltoaction_text`|
+|`Title`|`Required`|`R.id.ad_title_text`|
+|`Subtitle`|`Required`|`R.id.ad_subtitle_Text`|
+|`Facebook mediaView`|``|`R.id.ad_fb_cover_image`|
+|`Admob mediaView`|``|`R.id.ad_admob_cover_image`|
