@@ -1,6 +1,6 @@
 # FuseSSP Android SDK
 
-Maximize your app's revenue streams and save time, sign up for an account at FuseSSP.net.
+Maximize your app's revenue streams and save time, sign up for an account at [FuseSSP.com](http://fusessp.com).
 
 
 ## Initialization
@@ -119,7 +119,7 @@ iAd.release(ad_container);//Required
 ViewGroup ad_container//Load the ad parent control
 ```
 
-## Customize Native UI
+# Customize Native UI
 When you create an customize native ad object, the ad element id in the custom layout of the setAppSelfLayout() method needs to correspond to the ad element id in the table below.
 |Ad Element | Required | Corresponding Ad Element ID |
 |---|---|---|
