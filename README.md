@@ -3,7 +3,7 @@
 Maximize your app's revenue streams and save time, sign up for an account at [FuseSSP.com](http://app.fusessp.com).
 
 
-# Add the FuseSSP SDK and 3rd-party Networks to your Project
+## Add the FuseSSP SDK and 3rd-party Networks to your Project
 1.Directly dependent on the project modle: Your application only need to add compile project (': adlibrary')
 2.Dependent adlibrary-release.aar
 You can also update the 3rd party networks jar package in the build.gradle file.
@@ -110,7 +110,7 @@ Add follow rows in your app module proguard-rules.pro file:
        public <methods>;}
 ```
 
-# Modify your Android Manifest
+## Modify your Android Manifest
 
 Under the main <manifest> element, add the following permissions.
 ```xml
@@ -237,13 +237,13 @@ AdError//Error information.
 enum AdError { NO_FILL, NETWORK_FAILD, NETWORK_TIME_OUT, REQUEST_FREQUENCY, OTHER, INVALID_REQUEST;}
 ```
 
-# Release Ad Resources
+## Release Ad Resources
 ```java
 iAd.release(ad_container);//Required
 ViewGroup ad_container//Load the ad parent control
 ```
 
-# Customize Native UI
+## Customize Native UI
 When you create an customize native ad object, the ad element id in the custom layout of the ```setAppSelfLayout()``` method needs to correspond to the ad element id in the table below.
 
 |Ad Element | Required | Corresponding Ad Element ID |
