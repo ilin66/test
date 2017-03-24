@@ -3,6 +3,130 @@
 Maximize your app's revenue streams and save time, sign up for an account at [FuseSSP.com](http://app.fusessp.com).
 
 
+# Add the FuseSSP SDK and 3rd-party Networks to your Project
+1.Directly dependent on the project modle: Your application only need to add compile project (': adlibrary')
+2.Dependent adlibrary-release.aar
+You can also update the 3rd party networks jar package in the build.gradle file.
+```java
+compile 'com.facebook.android:audience-network-sdk:4.+'
+compile 'com.google.android.gms:play-services-ads:9.2.1'
+compile 'com.google.firebase:firebase-ads:9.6.0'
+compile 'com.mopub.volley:mopub-volley:1.1.0'
+compile 'com.flurry.android:analytics:6.5.0'
+compile 'com.flurry.android:ads:6.5.0'
+compile('com.mopub:mopub-sdk:4.12.0@aar') {
+    transitive = true
+}
+```
+
+Add follow rows in your app module proguard-rules.pro file:
+```java
+-keep public class android.webkit.JavascriptInterface {}
+# Support for Android Advertiser ID.
+-keep class com.google.android.gms.common.GooglePlayServicesUtil {*;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient {*;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info {*;}
+# Application classes that will be serialized/deserialized over Gson
+-keep class org.myteam.analyticssdk.jsonbean.** { *; }
+ 
+# firebase
+-keep public @com.google.android.gms.common.util.DynamiteApi class * { *; }
+ 
+# gson
+-keep class com.google.gson.** { *; }
+ 
+ 
+#adlibrary
+-keep class mobi.android.adlibrary.internal.ad.bean.** {*;}
+ 
+# libanalytics
+-keep class android.library.libinterface.** { *; }
+-dontwarn org.apache.http.**
+-dontwarn android.net.http.AndroidHttpClient
+-dontwarn com.google.android.gms.**
+-dontwarn com.android.volley.toolbox.**
+-keep class com.facebook.ads.** { *; }
+-keep public class com.google.ads.internal.** {*;}
+-keep public class com.google.ads.internal.AdWebView.** {*;}
+-keep public class com.google.ads.internal.state.AdState {*;}
+-keep public class com.google.ads.mediation.** {*;}
+-keep public class com.google.ads.mediation.adfonic.** {*;}
+-keep public class com.google.ads.mediation.admob.** {*;}
+-keep public class com.google.ads.mediation.adfonic.util.** {*;}
+-keep public class com.google.ads.mediation.customevent.** {*;}
+-keep public class com.google.ads.searchads.** {*;}
+-keep public class com.google.ads.util.** {*;}
+-keep public class com.google.ads.** {public *;}
+ 
+# Support for Google Play Services
+-keep class * extends java.util.ListResourceBundle {
+   protected Object[][] getContents();
+}
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {public static final *** NULL; }
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+   @com.google.android.gms.common.annotation.KeepName *;
+}
+-keep public class com.google.android.gms.ads.** {
+  public *;
+}
+-keepnames class * implements android.os.Parcelable {
+   public static final ** CREATOR;
+}
+# removes such information by default, so configure it to keep all of it.
+-keepattributes Signature
+ 
+# For using GSON @Expose annotation
+-keepattributes *Annotation*
+ 
+# Gson specific classes
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.reflect.TypeToken { *; }
+-keep class com.inmobi.** { *; }
+-keepclassmembers class com.mopub.** { public *; }
+-keep public class com.mopub.**
+ 
+# Explicitly keep any custom event classes in any package.
+-keep class * extends com.mopub.mobileads.CustomEventBanner {}
+-keep class * extends com.mopub.mobileads.CustomEventInterstitial {}
+-keep class * extends com.mopub.nativeads.CustomEventNative {}
+-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+   public *;
+}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient {*;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info {*;}
+# Required to preserve the Flurry SDK
+-keep class com.flurry.** { *; }
+-dontwarn com.flurry.**
+-keepattributes *Annotation*,EnclosingMethod,Signature
+-keepclasseswithmembers class * {
+    public <init> (android.content.Context, android.util.AttributeSet, int);
+}
+ -keep class com.google.android.gms.common.GooglePlayServicesUtil {
+       public <methods>;}
+ -keep class com.google.android.gms.ads.identifier.AdvertisingIdClient {
+       public <methods>;}
+ -keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info {
+       public <methods>;}
+```
+
+# Modify your Android Manifest
+
+Under the main <manifest> element, add the following permissions.
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.VIBRATE"/>
+<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+```
+Please see the Android documentation here.
+
 ## Initialization
 
 ##### Method:
