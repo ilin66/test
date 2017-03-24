@@ -6,7 +6,7 @@ Maximize your app's revenue streams and save time, sign up for an account at [Fu
 
 ## Contents
 * [Add the FuseSSP SDK and 3rd-party Networks to your Project](#add-the-fusessp-sdk-and-3rd-party-networks-to-your-project)
-* [Modify your Android Manifest](#amodify-your-android-manifest)
+* [Modify your Android Manifest](#modify-your-android-manifest)
 * [Initialization](#initialization)
 * [Ad Data Obtainment](#ad-data-obtainment)
 * [Ad Data Callback](#ad-data-callback)
