@@ -12,6 +12,7 @@ Maximize your app's revenue streams and save time, sign up for an account at [Fu
 * [Ad Data Callback](#ad-data-callback)
 * [Release Ad Resources](#release-ad-resources)
 * [Customize Native UI](#customize-native-ui)
+* [Requirements](#requirements)
 
 
 ## Add the FuseSSP SDK and 3rd-party Networks to your Project
@@ -122,6 +123,7 @@ Add follow rows in your app module proguard-rules.pro file:
        public <methods>;}
 ```
 
+
 ## Modify your Android Manifest
 
 Under the main <manifest> element, add the following permissions.
@@ -138,6 +140,7 @@ Under the main <manifest> element, add the following permissions.
 <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 ```
 Please see the Android documentation here.
+
 
 ## Initialization
 
@@ -156,6 +159,7 @@ String installChannel
 ```java
 AdAgent.getInstance().init(this, configUrl, " channel", "installChannel")
 ```
+
 
 ## Ad Data Obtainment
 ##### How to use:
@@ -212,6 +216,7 @@ Fill the parent container to dispaly the ads: provide the parent container, SDK 
 
 You can only fill the parent container to display the ads or use ```getView()``` to get ad's view, otherwise the click event may be invalid.
 
+
 ## Ad Data Callback
 ##### Method:
 ```java
@@ -250,12 +255,14 @@ enum AdError { NO_FILL, NETWORK_FAILD, NETWORK_TIME_OUT, REQUEST_FREQUENCY, OTHE
 ```
 
 ## Release Ad Resources
+
 ```java
 iAd.release(ad_container);//Required
 ViewGroup ad_container//Load the ad parent control
 ```
 
 ## Customize Native UI
+
 When you create an customize native ad object, the ad element id in the custom layout of the ```setAppSelfLayout()``` method needs to correspond to the ad element id in the table below.
 
 |Ad Element | Required | Corresponding Ad Element ID |
