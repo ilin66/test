@@ -234,7 +234,7 @@ new OnAdLoadListener() {
                                    wrapInterstitialAd.show();
                                              }}
 ```
-##### onLoad: Native&Banner Ad
+##### onLoad: Native Ad and Banner Ad
 ```java
 //IAd is the data returned after the callback is successful. Below are the methods in IAd.
 View getAdView();//Banner view.
@@ -287,5 +287,5 @@ When you create an customize native ad object, the ad element id in the custom l
 ## Requirements
 
 - Android 4.0.3 (API Version 15) and up (**Updated in 4.12.0**)
-- Compile 'com.android.support:appcompat-v7:23.1.1'
+- android.support:appcompat-v7:23.1.1
 - Recommended Google Play Services 9.2.1
