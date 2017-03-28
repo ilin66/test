@@ -269,3 +269,10 @@ When you create an customize native ad object, the ad element id in the custom l
 |Subtitle|Yes|`R.id.ad_subtitle_Text`|
 |Facebook mediaView|No|`R.id.ad_fb_cover_image`|
 |Admob mediaView|No|`R.id.ad_admob_cover_image`|
+
+
+## Requirements
+
+- Android 4.0.3 (API Version 15) and up (**Updated in 4.12.0**)
+- Compile 'com.android.support:appcompat-v7:23.1.1'
+- Recommended Google Play Services 9.2.1
