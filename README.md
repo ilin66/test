@@ -16,6 +16,7 @@ Maximize your app's revenue streams and save time, sign up for an account at [Fu
 
 ## Add the FuseSSP SDK and 3rd-party Networks to your Project
 1.Directly dependent on the project modle: Your application only need to add compile project (': adlibrary')
+
 2.Dependent adlibrary-release.aar
 You can also update the 3rd party networks jar package in the build.gradle file.
 ```java
