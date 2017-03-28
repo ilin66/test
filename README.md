@@ -5,6 +5,7 @@ Maximize your app's revenue streams and save time, sign up for an account at [Fu
 
 
 ## Contents
+
 * [Add the FuseSSP SDK and 3rd-party Networks to your Project](#add-the-fusessp-sdk-and-3rd-party-networks-to-your-project)
 * [Modify your Android Manifest](#modify-your-android-manifest)
 * [Initialization](#initialization)
@@ -16,6 +17,7 @@ Maximize your app's revenue streams and save time, sign up for an account at [Fu
 
 
 ## Add the FuseSSP SDK and 3rd-party Networks to your Project
+
 1.Directly dependent on the project modle: Your application only need to add compile project (': adlibrary')
 
 2.Dependent adlibrary-release.aar
@@ -162,6 +164,7 @@ AdAgent.getInstance().init(this, configUrl, " channel", "installChannel")
 
 
 ## Ad Data Obtainment
+
 ##### How to use:
 ```java
 public void loadAd(Context context, Ad ad, OnAdLoadListener listener)
@@ -218,6 +221,7 @@ You can only fill the parent container to display the ads or use ```getView()```
 
 
 ## Ad Data Callback
+
 ##### Method:
 ```java
 new OnAdLoadListener() {
@@ -254,12 +258,14 @@ AdError//Error information.
 enum AdError { NO_FILL, NETWORK_FAILD, NETWORK_TIME_OUT, REQUEST_FREQUENCY, OTHER, INVALID_REQUEST;}
 ```
 
+
 ## Release Ad Resources
 
 ```java
 iAd.release(ad_container);//Required
 ViewGroup ad_container//Load the ad parent control
 ```
+
 
 ## Customize Native UI
 
