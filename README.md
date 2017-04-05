@@ -1,12 +1,12 @@
-# TEST
+# FuseSSP Android SDK
 
-Maximize your app's revenue streams and save time, sign up for an account at here.
+Maximize your app's revenue streams and save time, sign up for an account at FuseSSP.com.
 
 
 
 ## Contents
 
-* [Add the test SDK and 3rd-party Networks to your Project](#add-the-test-sdk-and-3rd-party-networks-to-your-project)
+* [Add the FuseSSP SDK and 3rd-party Networks to your Project](#add-the-fusessp-sdk-and-3rd-party-networks-to-your-project)
 * [Modify your Android Manifest](#modify-your-android-manifest)
 * [Initialization](#initialization)
 * [Ad Data Obtainment](#ad-data-obtainment)
@@ -16,12 +16,11 @@ Maximize your app's revenue streams and save time, sign up for an account at her
 * [Requirements](#requirements)
 
 
-## Add the test SDK and 3rd-party Networks to your Project
+## Add the FuseSSP SDK and 3rd-party Networks to your Project
 
-1.Directly dependent on the project modle: Your application only need to add compile project (': adlibrary')
+1. Dependent on the project modle: application only need to add compile project (': adlibrary')
 
-2.Dependent adlibrary-release.aar
-You can also update the 3rd party networks jar package in the build.gradle file.
+2. Dependent on the adlibrary-release.aar, can also update the 3rd party networks jar package in the build.gradle file.
 ```java
 compile 'com.facebook.android:audience-network-sdk:4.+'
 compile 'com.google.android.gms:play-services-ads:9.2.1'
@@ -34,7 +33,7 @@ compile('com.mopub:mopub-sdk:4.12.0@aar') {
 }
 ```
 
-Add follow rows in your app module proguard-rules.pro file:
+Add following rows in your app module proguard-rules.pro file:
 ```java
 -keep public class android.webkit.JavascriptInterface {}
 # Support for Android Advertiser ID.
@@ -141,7 +140,6 @@ Under the main <manifest> element, add the following permissions.
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 ```
-Please see the Android documentation here.
 
 
 ## Initialization
@@ -153,7 +151,7 @@ init()
 ##### Parameters:
 ```java
 Context context//Context object.
-String configUrl//Required, pease use this fixed address: http://adconfig.cpp.app.fusessp.net?pubid=xxxx, note that the value of pubid needs to be replaced by the "App ID" that was generated after the app you created in FuseSSP.
+String configUrl//Required, please use this fixed address: http://adconfig.cpp.app.fusessp.net?pubid=xxxx, note that the value of pubid needs to be replaced by the "App ID" that was generated after the app you created in FuseSSP.
 String channel
 String installChannel
 ```
@@ -213,11 +211,12 @@ int width//The width of the ad (required in Admob banner ads)
 int hight//The hight of the ad (required in Admob banner ads)
 ```
 Additional information: ViewGroup viewGroup
-Use ```getView()``` to get ad's view: don't provide the parent container, the ad returns Nativedata and adview by default, but the ad's data fill and display requires your application to complete. (Through the NativeData custom View need to use ```iAd.registerViewForInteraction(view)``` method to register the view in the onLoad callback process.)
 
-Fill the parent container to dispaly the ads: provide the parent container, SDK will add the corresponding ad data you get to the corresponding parent class container, the data or view will also be provided in the callback interface ```onLoad(IAd iAd)``` method.
+Use ```getView()``` to get ad's view: don't provide the parent container, ad returns Nativedata and adview by default, but ad's data fill and display requires your application to complete. (Through NativeData custom View need to use ```iAd.registerViewForInteraction(view)``` method to register the view in the onLoad callback process.)
 
-You can only fill the parent container to display the ads or use ```getView()``` to get ad's view, otherwise the click event may be invalid.
+Fill parent container to dispaly the ads: provide parent container, SDK will add corresponding ad data you get to the corresponding parent class container, data or view will also be provided in the callback interface ```onLoad(IAd iAd)``` method.
+
+You can only fill the parent container to display the ads or use ```getView()``` to get ad's view, otherwise click event may be invalid.
 
 
 ## Ad Data Callback
@@ -236,7 +235,7 @@ new OnAdLoadListener() {
 ```
 ##### onLoad: Native Ad and Banner Ad
 ```java
-//IAd is the data returned after the callback is successful. Below are the methods in IAd.
+//IAd is the data returned after callback is successful. Below are the methods in IAd.
 View getAdView();//Banner view.
 AdCallBackInfo getNativeAd();//Get native data.
 String getIconUrl();//Get the url of the ad icon.
@@ -244,13 +243,13 @@ void setOnCancelAdListener(OnCancelAdListener var1);//Ad close button click even
 void setOnAdClickListener(OnAdClickListener var1);//Ad click event callback.
 void setOnAdTouchListener(OnTouchListener var1);//Ad touch event callback.
 nativeAd.getPrivacyInformationIconUrl()//Adchoice icon provided by networks.
-voidsetOnPrivacyIconClickListener(OnClickListener var1, View var2);//The adchoice icon click event callback.
+voidsetOnPrivacyIconClickListener(OnClickListener var1, View var2);//Adchoice icon click event callback.
 void registerViewForInteraction(View var1);//If you use the returned data to stitch View, you need to register the displayed View (capture data and trigger event response).
 void showCustomAdView();//Custom view, you need to call this method to achieve the RBI event of the ad display.
 ```
 ##### onLoad: Interstitial Ad
 ```java
-wrapInterstitialAd.show()//Need to show manually.
+wrapInterstitialAd.show()//Manually.
 ```
 ##### onLoad: Failed 
 ```java
@@ -263,13 +262,13 @@ enum AdError { NO_FILL, NETWORK_FAILD, NETWORK_TIME_OUT, REQUEST_FREQUENCY, OTHE
 
 ```java
 iAd.release(ad_container);//Required
-ViewGroup ad_container//Load the ad parent control
+ViewGroup ad_container//Load ad parent control
 ```
 
 
 ## Customize Native UI
 
-When you create an customize native ad object, the ad element id in the custom layout of the ```setAppSelfLayout()``` method needs to correspond to the ad element id in the table below.
+When you create an customized native ad object, the ad element id in the custom layout of the ```setAppSelfLayout()``` method needs to be correspondent to the ad element id in the table below.
 
 |Ad Element | Required | Corresponding Ad Element ID |
 |----------|----------|----------|
