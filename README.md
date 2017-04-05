@@ -1,12 +1,12 @@
-# FuseSSP Android SDK
+# TEST
 
-Maximize your app's revenue streams and save time, sign up for an account at [FuseSSP.com](http://app.fusessp.com).
+Maximize your app's revenue streams and save time, sign up for an account at here.
 
 
 
 ## Contents
 
-* [Add the FuseSSP SDK and 3rd-party Networks to your Project](#add-the-fusessp-sdk-and-3rd-party-networks-to-your-project)
+* [Add the test SDK and 3rd-party Networks to your Project](#add-the-test-sdk-and-3rd-party-networks-to-your-project)
 * [Modify your Android Manifest](#modify-your-android-manifest)
 * [Initialization](#initialization)
 * [Ad Data Obtainment](#ad-data-obtainment)
@@ -16,7 +16,7 @@ Maximize your app's revenue streams and save time, sign up for an account at [Fu
 * [Requirements](#requirements)
 
 
-## Add the FuseSSP SDK and 3rd-party Networks to your Project
+## Add the test SDK and 3rd-party Networks to your Project
 
 1.Directly dependent on the project modle: Your application only need to add compile project (': adlibrary')
 
