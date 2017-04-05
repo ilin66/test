@@ -148,6 +148,7 @@ Under the main <manifest> element, add the following permissions.
 ```java
 init()
 ```
+
 ##### Parameters:
 ```java
 Context context//Context object.
@@ -155,6 +156,7 @@ String configUrl//Required, please use this fixed address: http://adconfig.cpp.a
 String channel
 String installChannel
 ```
+
 ##### How to use:
 ```java
 AdAgent.getInstance().init(this, configUrl, " channel", "installChannel")
@@ -179,6 +181,7 @@ AdAgent.getInstance().loadAd(getApplicationContext(),ad,new OnAdLoadListener() {
             }
         });
 ```
+
 ##### Method:
 ```java
 loadAd()
@@ -195,6 +198,7 @@ Ad ad = (new Ad.Builder(getApplicationContext(),slotId))//slotId is the "Ad Unit
 .setAppSelfLayout(R.id.ad_resource_layout)
 .build();
 ```
+
 ##### Parameters:
 ```java
 //Ad Builder:
@@ -210,7 +214,10 @@ String slotId//Required, the "Ad Unit ID" that was generated after the app's ad 
 int width//The width of the ad (required in Admob banner ads)
 int hight//The hight of the ad (required in Admob banner ads)
 ```
-Additional information: ViewGroup viewGroup
+
+#### Additional information
+
+ViewGroup viewGroup
 
 Use ```getView()``` to get ad's view: don't provide the parent container, ad returns Nativedata and adview by default, but ad's data fill and display requires your application to complete. (Through NativeData custom View need to use ```iAd.registerViewForInteraction(view)``` method to register the view in the onLoad callback process.)
 
@@ -233,6 +240,7 @@ new OnAdLoadListener() {
                                    wrapInterstitialAd.show();
                                              }}
 ```
+
 ##### onLoad: Native Ad and Banner Ad
 ```java
 //IAd is the data returned after callback is successful. Below are the methods in IAd.
@@ -247,10 +255,13 @@ voidsetOnPrivacyIconClickListener(OnClickListener var1, View var2);//Adchoice ic
 void registerViewForInteraction(View var1);//If you use the returned data to stitch View, you need to register the displayed View (capture data and trigger event response).
 void showCustomAdView();//Custom view, you need to call this method to achieve the RBI event of the ad display.
 ```
+
 ##### onLoad: Interstitial Ad
 ```java
-wrapInterstitialAd.show()//Manually.
+
+wrapInterstitialAd.show()//Manually add.
 ```
+
 ##### onLoad: Failed 
 ```java
 AdError//Error information.
